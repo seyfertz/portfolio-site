@@ -35,7 +35,7 @@ const consent = leadForm.elements.consent;
 const send = $('#send');
 const isLocal = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname);
 const hostedDemo = DEMO_PROFILE.enabled && !isLocal;
-const live = DEMO_PROFILE.enabled ? hostedDemo : Boolean(CONFIG.operator && CONFIG.privacyContact);
+const live = !isLocal && (DEMO_PROFILE.enabled || Boolean(CONFIG.operator && CONFIG.privacyContact));
 let brief = '';
 
 function status(element, text, failure = false) {
@@ -55,9 +55,9 @@ function estimate() {
   const budget = 'от ' + rubles(price);
   $('#price').textContent = budget;
   $('#duration').textContent = launch + ' до запуска';
-  brief = ['Мини-ТЗ · Контур', 'Ниша: ' + calculator.elements.niche.value, 'Решение: ' + calculator.elements.solution.selectedOptions[0].textContent,
+  brief = ['План запуска проекта · Контур', 'Ниша: ' + calculator.elements.niche.value, 'Решение: ' + calculator.elements.solution.selectedOptions[0].textContent,
     'Состав: ' + solution.scope, 'Модули: ' + (selected.map((item) => item.label).join(', ') || 'без дополнительных модулей'),
-    'Предварительный бюджет: ' + budget, 'Ориентир запуска: ' + launch].join('\n');
+    'Расчёт стоимости: ' + budget, 'Срок запуска: ' + launch].join('\n');
   $('#brief').textContent = brief;
   status($('#copy-status'), '');
 }
@@ -68,7 +68,7 @@ $('#copy').onclick = async () => {
   try {
     if (!navigator.clipboard) throw Error();
     await navigator.clipboard.writeText(brief);
-    status($('#copy-status'), 'Мини-ТЗ скопировано.');
+    status($('#copy-status'), 'План запуска скопирован.');
   } catch {
     const block = $('#brief');
     block.closest('details').open = true;
@@ -79,7 +79,7 @@ $('#copy').onclick = async () => {
     selection.addRange(range);
     const copied = document.execCommand('copy');
     if (copied) selection.removeAllRanges();
-    status($('#copy-status'), copied ? 'Мини-ТЗ скопировано.' : 'Текст выделен. Его можно скопировать вручную.');
+    status($('#copy-status'), copied ? 'План запуска скопирован.' : 'Текст выделен. Его можно скопировать вручную.');
   }
 };
 $('#attach').onclick = () => { $('#include-brief').checked = true; };
@@ -89,18 +89,18 @@ const documents = DEMO_PROFILE.enabled ? {
   privacy: {
     title: 'Политика конфиденциальности',
     paragraphs: [
-      'Контур — демонстрационная витрина самозанятого веб-разработчика. Для вопросов по демо можно написать в Telegram: ' + DEMO_PROFILE.contact + '.',
+      'Контур — сайт самозанятого веб-разработчика. По вопросам о работе сайта и обработке данных напишите в Telegram: ' + DEMO_PROFILE.contact + '.',
       hostedDemo
-        ? 'Форма использует готовый пример заявки. При отправке Vercel передаёт пример и, по вашему выбору, расчёт из конструктора в демонстрационный чат Telegram.'
-        : 'Локальный предпросмотр сохраняет тестовую заявку в этом браузере. Используйте вымышленные данные.',
+        ? 'Форма использует готовый пример заявки. Vercel передаёт пример в Telegram и прикладывает расчёт стоимости, если вы его выбрали.'
+        : 'При просмотре сайта на вашем устройстве форма сохраняет пример заявки в этом браузере. Используйте вымышленные данные.',
       'Версия согласия ' + CONFIG.consentVersion + '.',
     ],
   },
   consent: {
-    title: 'Согласие на отправку тестовой заявки',
+    title: 'Согласие на отправку примера заявки',
     paragraphs: [
-      hostedDemo ? 'Я подтверждаю отправку готового примера заявки и выбранной сметы в демонстрационный чат Telegram.'
-        : 'Я согласен(на) сохранить введённые тестовые данные в этом браузере для проверки формы.',
+      hostedDemo ? 'Я подтверждаю отправку примера заявки и выбранного расчёта в Telegram.'
+        : 'Я согласен(на) сохранить пример заявки в этом браузере.',
       'Версия согласия ' + CONFIG.consentVersion + '.',
     ],
   },
@@ -109,8 +109,8 @@ const documents = DEMO_PROFILE.enabled ? {
     title: 'Политика конфиденциальности',
     paragraphs: [
       live ? 'Оператор — ' + CONFIG.operator + ', ' + CONFIG.operatorStatus + '. Контакт по вопросам персональных данных — ' + CONFIG.privacyContact + '.'
-        : 'Демонстрационная политика. Реквизиты оператора ещё не заполнены. В режиме предпросмотра форма хранит заявки в этом браузере.',
-      'Для рассмотрения заявки и связи с вами обрабатываются имя, контакт и сведения, которые вы укажете о проекте. Мини-ТЗ прикладывается по вашему выбору.',
+        : 'При локальном просмотре форма хранит заявки в этом браузере.',
+      'Для ответа на заявку нужны имя, контакт и сведения о проекте. Вы можете приложить план запуска.',
       ...(live ? [
         'Заявка отправляется через серверную функцию Vercel в личный чат оператора в Telegram. В сообщение включаются версия согласия и время его получения.',
         'Данные обрабатываются до рассмотрения заявки или отзыва согласия, если у оператора нет иных законных оснований для обработки. Чтобы отозвать согласие или уточнить порядок обработки, напишите по контакту оператора.',
@@ -145,8 +145,8 @@ document.querySelectorAll('[data-legal]').forEach((button) => {
 consent.addEventListener('change', () => { send.disabled = !consent.checked; });
 if (DEMO_PROFILE.enabled) {
   $('.consent label span').textContent = hostedDemo
-    ? 'Согласен отправить тестовую заявку в Telegram'
-    : 'Согласен сохранить тестовую заявку в этом браузере';
+    ? 'Согласен отправить пример заявки в Telegram'
+    : 'Согласен сохранить пример заявки в этом браузере';
 }
 if (hostedDemo) {
   for (const [field, value] of Object.entries(DEMO_PROFILE.sample)) {
@@ -155,11 +155,11 @@ if (hostedDemo) {
     input.readOnly = true;
     input.removeAttribute('autocomplete');
   }
-  send.textContent = 'Отправить тестовую заявку';
+  send.textContent = 'Отправить пример заявки';
 }
 if (!live) {
   send.textContent = 'Сохранить локально';
-  status($('#lead-status'), 'Демо-режим. Заявка сохраняется в этом браузере.');
+  status($('#lead-status'), 'Пример заявки сохранится в этом браузере.');
 }
 
 function saveLocal(lead) {
@@ -199,20 +199,18 @@ leadForm.onsubmit = async (event) => {
   send.disabled = true;
   status($('#lead-status'), 'Сохраняем заявку…');
   try {
-    let local = !live;
     if (live) {
       const response = await fetch(CONFIG.leadEndpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead),
         signal: AbortSignal.timeout(12000),
       });
       const result = await response.json();
-      if (isLocal && response.status === 503 && result.code === 'not_configured') local = true;
-      else if (!response.ok || !result.ok) throw Error(result.error || 'Сервис заявок недоступен. Повторите позже.');
+      if (!response.ok || !result.ok) throw Error(result.error || 'Сервис заявок недоступен. Повторите позже.');
     }
-    if (local) saveLocal(lead);
+    if (!live) saveLocal(lead);
     leadForm.reset();
-    status($('#lead-status'), local ? 'Заявка сохранена локально. Для отправки подключите Telegram.'
-      : hostedDemo ? 'Тестовая заявка отправлена в Telegram.' : 'Заявка отправлена. Мы свяжемся с вами.');
+    status($('#lead-status'), !live ? 'Заявка сохранена локально. Для отправки подключите Telegram.'
+      : hostedDemo ? 'Пример заявки отправлен в Telegram.' : 'Заявка отправлена. Мы свяжемся с вами.');
   } catch (error) {
     status($('#lead-status'), error.message || 'Не удалось сохранить заявку. Проверьте настройки браузера.', true);
   } finally {

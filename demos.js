@@ -31,7 +31,7 @@ export function mountDemos() {
   function render(focus = false) {
     const item = data[current];
     demo.dataset.theme = current;
-    document.querySelector('#case-address').textContent = 'demo.kontur / ' + current;
+    document.querySelector('#case-address').textContent = 'Пример сайта — ' + item.brand.split(' / ')[0];
     document.querySelector('#case-caption').textContent = item.caption;
     const screen = make('div', '', 'demo-view ' + (view === 'cover' ? 'demo-cover' : 'demo-steps'));
     const title = make('h3');
@@ -44,7 +44,7 @@ export function mountDemos() {
       const grid = make('div', '', 'demo-choices');
       grid.append(...item.services.map((service) => button(service[0] + ' · ' + rubles(service[1]),
         () => { selected = service; go('slots'); }, '')));
-      screen.append(title, grid, button('На главную демо', () => go('cover'), 'demo-ghost'));
+      screen.append(title, grid, button('В начало примера', () => go('cover'), 'demo-ghost'));
     } else if (view === 'slots') {
       title.textContent = 'Выберите время';
       const slots = make('div', '', 'demo-slots');
@@ -56,9 +56,9 @@ export function mountDemos() {
     } else if (view === 'check') {
       title.textContent = 'Проверьте запись';
       screen.append(title, make('p', selected[0] + ' · Завтра в ' + time + ' · ' + rubles(selected[1])),
-        button('Подтвердить в демо', () => go('finish')), button('Выбрать другое время', () => go('slots'), 'demo-ghost'));
+        button('Подтвердить пример записи', () => go('finish')), button('Выбрать другое время', () => go('slots'), 'demo-ghost'));
     } else {
-      title.textContent = 'Демо-запись готова';
+      title.textContent = 'Пример записи готов';
       screen.append(title, make('p', selected[0] + ' · Завтра в ' + time),
         make('p', 'Так выглядит подтверждение для клиента. Запись учебная.'),
         button('Попробовать ещё раз', () => go('cover')));

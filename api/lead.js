@@ -47,7 +47,7 @@ export default async function handler(request, response) {
   const name = sample?.name ?? clean(input.name, 80);
   const contact = sample?.contact ?? clean(input.contact, 100);
   if (!name || !contact) return response.status(400).json({ error: 'Укажите имя и контакт.' });
-  const text = [sample ? 'Тестовая заявка · Контур' : 'Новая заявка · Контур', 'Имя: ' + name, 'Контакт: ' + contact,
+  const text = [sample ? 'Пример заявки · Контур' : 'Новая заявка · Контур', 'Имя: ' + name, 'Контакт: ' + contact,
     'Согласие: ' + consentVersion + ' · ' + new Date().toISOString(),
     sample?.message ?? clean(input.message, 700), clean(input.brief, 1800)].filter(Boolean).join('\n\n');
   try {

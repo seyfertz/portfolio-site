@@ -282,6 +282,27 @@ h1,h2,h3,p,fieldset {
   letter-spacing:-.077em;
   font-weight:620;
   margin:18px 0 21px;
+  overflow-wrap:anywhere;
+}
+
+.faq-list {
+  display:grid;
+  gap:10px;
+}
+
+.faq-list summary {
+  cursor:pointer;
+}
+
+.faq-list summary h3 {
+  display:inline;
+  font-size:1rem;
+}
+
+.faq-list p {
+  margin-top:12px;
+  color:var(--muted);
+  line-height:1.55;
 }
 
 .hero h1 em {

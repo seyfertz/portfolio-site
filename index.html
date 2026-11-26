@@ -3,9 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Контур — демовитрина сайта веб-разработчика. Примеры онлайн-записи, Telegram Mini Apps и калькулятора сметы.">
+  <meta name="description" content="Разработка сайтов, Telegram-ботов для записи и Mini App под ключ для малого бизнеса. Лендинг от 7 000 ₽, сайт с записью или бот от 10 000 ₽. Запуск за 1–3 дня.">
+  <link rel="canonical" href="https://kontur-portfolio-demo.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Контур">
+  <meta property="og:url" content="https://kontur-portfolio-demo.vercel.app/">
+  <meta property="og:title" content="Сайты, Telegram-боты и Mini App под ключ от 7 000 ₽ — Контур">
+  <meta property="og:description" content="Запускаем сайты и ботов для онлайн-записи за 1–3 дня. Посмотрите примеры для малого бизнеса и рассчитайте стоимость проекта.">
   <meta name="theme-color" content="#171a17">
-  <title>Контур — цифровая студия</title>
+  <title>Сайты, Telegram-боты и Mini App под ключ от 7 000 ₽ — Контур</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://kontur-portfolio-demo.vercel.app/#kontur",
+          "name": "Контур",
+          "url": "https://kontur-portfolio-demo.vercel.app/",
+          "description": "Разработка сайтов, Telegram-ботов для онлайн-записи и Mini App для малого бизнеса."
+        },
+        {
+          "@type": "Service",
+          "name": "Разработка сайтов, Telegram-ботов и Mini App под ключ",
+          "provider": {"@id": "https://kontur-portfolio-demo.vercel.app/#kontur"},
+          "url": "https://kontur-portfolio-demo.vercel.app/#estimate",
+          "offers": [
+            {"@type": "Offer", "name": "Продающий лендинг", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 7000, "priceCurrency": "RUB"}},
+            {"@type": "Offer", "name": "Сайт с онлайн-записью", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 10000, "priceCurrency": "RUB"}},
+            {"@type": "Offer", "name": "Telegram-бот для записи или Mini App", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 10000, "priceCurrency": "RUB"}},
+            {"@type": "Offer", "name": "Сайт, бот и кабинет владельца", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 18000, "priceCurrency": "RUB"}}
+          ]
+        }
+      ]
+    }
+  </script>
   <link rel="icon" href="media/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <script type="module" src="script.js"></script>
@@ -14,7 +47,7 @@
   <header class="header">
     <div class="shell header-inner">
       <a class="wordmark" href="#home" aria-label="Контур — на главную"><span class="mark" aria-hidden="true"><i></i></span><span>контур<span class="wordmark-dot">.</span></span></a>
-      <nav class="nav" aria-label="Основная навигация"><a href="#cases">Демо-кейсы</a><a href="#estimate">Калькулятор</a></nav>
+      <nav class="nav" aria-label="Основная навигация"><a href="#cases">Примеры работ</a><a href="#estimate">Стоимость</a><a href="#faq">Вопросы</a></nav>
       <a class="button outline" href="#contact">Оставить заявку</a>
     </div>
   </header>
@@ -25,16 +58,16 @@
       <div class="shell hero-interior">
         <div class="hero-copy">
           <p class="eyebrow hero-kicker"><i aria-hidden="true"></i> ЗАПУСК САЙТОВ И БОТОВ ЗА 1–3 ДНЯ</p>
-          <h1 id="hero-title">Бизнес<br>в одном <em>контуре.</em></h1>
-          <p class="hero-description">Посмотрите, как сайт, онлайн-запись и Telegram работают вместе. Пройдите запись в примерах и соберите тестовую смету.</p>
-          <div class="hero-actions"><a class="button primary" href="#estimate">Рассчитать проект</a><a class="button hero-link" href="#cases">Смотреть демо</a></div>
+          <h1 id="hero-title">Сайты и Telegram-боты <em>под ключ</em></h1>
+          <p class="hero-description">Лендинги, онлайн-запись и Mini App для малого бизнеса. От 7 000 ₽. Клиенты выбирают удобное время сами, а вы видите все записи в одном месте.</p>
+          <div class="hero-actions"><a class="button primary" href="#estimate">Рассчитать стоимость</a><a class="button hero-link" href="#cases">Примеры решений</a></div>
         </div>
       </div>
       <div class="shell hero-footer"><div><span class="strip-icon" aria-hidden="true">◈</span><span>Сайты и онлайн-запись</span></div><div><span class="strip-icon" aria-hidden="true">⌁</span><span>Telegram и Mini Apps</span></div><div><span class="strip-icon" aria-hidden="true">▦</span><span>CRM-панель и отчёты</span></div></div>
     </section>
 
     <section class="section cases shell" id="cases" aria-labelledby="cases-title">
-      <div class="section-head reveal"><div><p class="eyebrow"><i aria-hidden="true"></i> Live Sandbox</p><h2 id="cases-title">Демо-кейсы</h2></div><p>Выберите нишу и пройдите путь клиента. Запись можно попробовать прямо здесь.</p></div>
+      <div class="section-head reveal"><div><h2 id="cases-title">Примеры работ</h2></div><p>Выберите сферу бизнеса и посмотрите, как клиент запишется на услугу.</p></div>
       <div class="case-shell reveal spotlight">
         <div class="case-toolbar">
           <div class="case-tabs" aria-label="Ниши" role="group">
@@ -44,8 +77,8 @@
         </div>
         <div class="case-stage" id="case-stage">
           <div class="device" id="device">
-            <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="case-address">demo.kontur / auto</span><span aria-hidden="true">↗</span></div>
-            <article id="demo" class="demo" data-theme="auto" aria-label="Интерактивное демо"></article>
+            <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="case-address">Пример сайта</span><span aria-hidden="true">↗</span></div>
+            <article id="demo" class="demo" data-theme="auto" aria-label="Интерактивный пример сайта"></article>
           </div>
         </div>
         <div class="case-foot"><span><i aria-hidden="true"></i> Интерактивный прототип</span><span id="case-caption"></span></div>
@@ -54,7 +87,7 @@
 
     <div class="estimate-band">
       <section class="section shell estimate" id="estimate" aria-labelledby="estimate-title">
-        <div class="section-head reveal"><div><p class="eyebrow"><i aria-hidden="true"></i> Конструктор проекта</p><h2 id="estimate-title">Соберите смету</h2></div><p>Выберите решение и модули. Стоимость и сроки в калькуляторе приведены для примера.</p></div>
+        <div class="section-head reveal"><div><h2 id="estimate-title">Расчёт стоимости</h2></div><p>Выберите решение и нужные функции. Калькулятор покажет начальную цену и срок запуска.</p></div>
         <div class="estimate-grid">
           <form id="calculator" class="glass spotlight reveal">
             <div class="selects"><label>Ниша бизнеса<select id="niche" name="niche"><option>Автосервис / Детейлинг</option><option>Барбершоп</option><option>Стоматология</option><option>Кофейня / Доставка</option><option>Другая ниша</option></select></label>
@@ -66,24 +99,46 @@
               <label class="module"><input type="checkbox" name="modules" value="telegram"><span>Уведомления в Telegram</span><small>+ 1 500 ₽</small></label>
             </fieldset>
           </form>
-          <aside class="result spotlight reveal" aria-label="Предварительная смета">
-            <p class="eyebrow">Предварительная смета</p>
+          <aside class="result spotlight reveal" aria-label="Расчёт стоимости проекта">
+            <p class="eyebrow">Стоимость проекта</p>
             <div class="result-total" aria-live="polite"><strong id="price">от 7 000 ₽</strong><span id="duration">1 день до запуска</span></div>
-            <details class="brief-details"><summary>Показать мини-ТЗ</summary><pre id="brief"></pre></details>
-            <div class="result-actions"><button class="button result-copy" type="button" id="copy">Копировать ТЗ</button><a href="#contact" class="button primary" id="attach">Отправить с заявкой</a></div>
+            <details class="brief-details"><summary>План запуска проекта</summary><pre id="brief"></pre></details>
+            <div class="result-actions"><button class="button result-copy" type="button" id="copy">Скопировать план</button><a href="#contact" class="button primary" id="attach">Приложить к заявке</a></div>
             <p id="copy-status" class="small-status" role="status" hidden></p>
           </aside>
         </div>
       </section>
     </div>
 
+    <section class="section faq shell" id="faq" aria-labelledby="faq-title" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="section-head"><h2 id="faq-title">Частые вопросы</h2></div>
+      <div class="faq-list">
+        <details class="glass" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+          <summary><h3 itemprop="name">Сколько стоит сайт или Telegram-бот?</h3></summary>
+          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Лендинг стоит от 7 000 ₽. Сайт с онлайн-записью, Telegram-бот или Mini App — от 10 000 ₽. Сайт, бот и кабинет владельца — от 18 000 ₽.</p></div>
+        </details>
+        <details class="glass" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+          <summary><h3 itemprop="name">За сколько дней можно запустить проект?</h3></summary>
+          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Лендинг — за 1 день. Сайт с записью или бот — за 1–2 дня. Комплект с кабинетом владельца — за 2–3 дня. Некоторые дополнительные функции добавляют по полдня.</p></div>
+        </details>
+        <details class="glass" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+          <summary><h3 itemprop="name">Что мне подготовить для запуска?</h3></summary>
+          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Пришлите список услуг, цены, график работы и контакты. Фотографии и логотип можно отправить в Telegram.</p></div>
+        </details>
+        <details class="glass" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+          <summary><h3 itemprop="name">Можно ли заказать поддержку после запуска?</h3></summary>
+          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Да. Если нужно обновлять сайт, добавлять услуги или менять настройки записи, обсудим объём работ и стоимость поддержки отдельно.</p></div>
+        </details>
+      </div>
+    </section>
+
     <section class="section contact shell" id="contact" aria-labelledby="contact-title">
-      <div class="contact-copy reveal"><h2 id="contact-title">Обсудить проект</h2><p>Оставьте контакты — свяжусь с вами в Telegram в течение 15 минут, прикреплю расчёт из калькулятора и предложу решение под ваш бизнес.</p>
+      <div class="contact-copy reveal"><h2 id="contact-title">Обсудить проект</h2><p>Оставьте контакты или напишите в Telegram. Отвечу в течение 15 минут и предложу решение для вашего бизнеса.</p><p><a class="button primary" href="https://t.me/freshxw">Написать в Telegram</a></p></div>
 
       <form id="lead-form" class="contact-form glass spotlight reveal">
         <div class="selects"><label>Ваше имя<input name="name" autocomplete="name" placeholder="Анна" required maxlength="80"></label><label>Telegram или телефон<input name="contact" placeholder="@username или +7…" required maxlength="100"></label></div>
         <label><span class="field-label">О проекте <small>(необязательно)</small></span><textarea name="message" rows="3" maxlength="700" placeholder="Например, нужна онлайн-запись для двух мастеров"></textarea></label>
-        <label id="attach-row"><input type="checkbox" id="include-brief"> Приложить смету и мини-ТЗ</label>
+        <label id="attach-row"><input type="checkbox" id="include-brief"> Приложить расчёт стоимости и план запуска</label>
         <input name="website" type="text" tabindex="-1" autocomplete="off" hidden aria-hidden="true">
         <div class="consent"><label><input name="consent" type="checkbox" required><span>Даю согласие на обработку персональных данных</span></label><div><button data-legal="consent" type="button">Текст согласия</button><button data-legal="privacy" type="button">Политика конфиденциальности</button></div></div>
         <button class="button primary" id="send" type="submit" disabled>Отправить заявку</button>
