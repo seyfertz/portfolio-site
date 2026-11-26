@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Контур — демовитрина сайта веб-разработчика. Примеры онлайн-записи, Telegram Mini Apps и калькулятора сметы.">
+  <meta name="theme-color" content="#171a17">
+  <title>Контур — цифровая студия</title>
+  <link rel="icon" href="media/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#home" aria-label="Контур — на главную"><span class="mark" aria-hidden="true"><i></i></span><span>контур<span class="wordmark-dot">.</span></span></a>
+      <nav class="nav" aria-label="Основная навигация"><a href="#cases">Демо-кейсы</a><a href="#estimate">Калькулятор</a></nav>
+      <a class="button outline" href="#contact">Тестовая заявка</a>
+    </div>
+  </header>
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="terrain" aria-hidden="true"><canvas id="terrain-fallback"></canvas><div id="terrain"></div></div>
+      <div class="shell hero-interior">
+        <div class="hero-copy">
+          <p class="eyebrow hero-kicker"><i aria-hidden="true"></i> Демовитрина веб-разработчика</p>
+          <h1 id="hero-title">Бизнес<br>в одном <em>контуре.</em></h1>
+          <p class="hero-description">Посмотрите, как сайт, онлайн-запись и Telegram работают вместе. Пройдите запись в примерах и соберите тестовую смету.</p>
+          <div class="hero-actions"><a class="button primary" href="#estimate">Рассчитать проект</a><a class="button hero-link" href="#cases">Смотреть демо</a></div>
+        </div>
+      </div>
+      <div class="shell hero-footer"><div><span class="strip-icon" aria-hidden="true">◈</span><span>Сайты и онлайн-запись</span></div><div><span class="strip-icon" aria-hidden="true">⌁</span><span>Telegram и Mini Apps</span></div><div><span class="strip-icon" aria-hidden="true">▦</span><span>CRM-панель и отчёты</span></div></div>
+    </section>
+
+    <section class="section cases shell" id="cases" aria-labelledby="cases-title">
+      <div class="section-head reveal"><div><p class="eyebrow"><i aria-hidden="true"></i> Live Sandbox</p><h2 id="cases-title">Демо-кейсы</h2></div><p>Выберите нишу и пройдите путь клиента. Запись можно попробовать прямо здесь.</p></div>
+      <div class="case-shell reveal spotlight">
+        <div class="case-toolbar">
+          <div class="case-tabs" aria-label="Ниши" role="group">
+            <button type="button" data-case="auto" aria-pressed="true">Автосервис</button><button type="button" data-case="barber" aria-pressed="false">Барбершоп</button><button type="button" data-case="dental" aria-pressed="false">Стоматология</button><button type="button" data-case="coffee" aria-pressed="false">Кофейня</button>
+          </div>
+          <div class="device-tabs" aria-label="Устройство" role="group"><button type="button" data-device="desktop" aria-pressed="true"><i class="screen-icon" aria-hidden="true"></i>Десктоп</button><button type="button" data-device="phone" aria-pressed="false"><i class="phone-icon" aria-hidden="true"></i>Телефон</button></div>
+        </div>
+        <div class="case-stage" id="case-stage">
+          <div class="device" id="device">
+            <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="case-address">demo.kontur / auto</span><span aria-hidden="true">↗</span></div>
+            <article id="demo" class="demo" data-theme="auto" aria-label="Интерактивное демо"></article>
+          </div>
+        </div>
+        <div class="case-foot"><span><i aria-hidden="true"></i> Интерактивный прототип</span><span id="case-caption"></span></div>
+      </div>
+    </section>
+
+    <div class="estimate-band">
+      <section class="section shell estimate" id="estimate" aria-labelledby="estimate-title">
+        <div class="section-head reveal"><div><p class="eyebrow"><i aria-hidden="true"></i> Конструктор проекта</p><h2 id="estimate-title">Соберите смету</h2></div><p>Выберите решение и модули. Стоимость и сроки в калькуляторе приведены для примера.</p></div>
+        <div class="estimate-grid">
+          <form id="calculator" class="glass spotlight reveal">
+            <div class="selects"><label>Ниша бизнеса<select id="niche" name="niche"><option>Автосервис / Детейлинг</option><option>Барбершоп</option><option>Стоматология</option><option>Кофейня / Доставка</option><option>Другая ниша</option></select></label>
+            <label>Тип решения<select id="solution" name="solution"><option value="landing">Продающий лендинг</option><option value="booking">Сайт + Онлайн-запись</option><option value="miniapp">Telegram-бот + Mini App</option><option value="full">Сайт + Бот + CRM-панель</option></select></label></div>
+            <fieldset><legend>Дополнительные модули</legend>
+              <label class="module"><input type="checkbox" name="modules" value="reminder"><span>Авто-напоминания за 2 часа</span><small>+ 3 000 ₽</small></label>
+              <label class="module"><input type="checkbox" name="modules" value="loyalty"><span>Лояльность и бонусы</span><small>+ 5 000 ₽</small></label>
+              <label class="module"><input type="checkbox" name="modules" value="maps"><span>Карты 2ГИС / Яндекс</span><small>+ 2 000 ₽</small></label>
+              <label class="module"><input type="checkbox" name="modules" value="telegram"><span>Уведомления в Telegram</span><small>+ 2 000 ₽</small></label>
+            </fieldset>
+          </form>
+          <aside class="result spotlight reveal" aria-label="Предварительная смета">
+            <p class="eyebrow">Предварительная смета</p>
+            <div class="result-total" aria-live="polite"><strong id="price">25 000 ₽</strong><span id="duration">7 дней до запуска</span></div>
+            <details class="brief-details"><summary>Показать мини-ТЗ</summary><pre id="brief"></pre></details>
+            <div class="result-actions"><button class="button result-copy" type="button" id="copy">Копировать ТЗ</button><a href="#contact" class="button primary" id="attach">Отправить с заявкой</a></div>
+            <p id="copy-status" class="small-status" role="status" hidden></p>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <section class="section contact shell" id="contact" aria-labelledby="contact-title">
+      <div class="contact-copy reveal"><h2 id="contact-title">Попробуйте форму</h2><p>Проверьте, как тестовая заявка приходит в Telegram. К ней можно приложить смету из конструктора.</p></div>
+      <form id="lead-form" class="contact-form glass spotlight reveal">
+        <div class="selects"><label>Ваше имя<input name="name" autocomplete="name" placeholder="Анна" required maxlength="80"></label><label>Telegram или телефон<input name="contact" placeholder="@username или +7…" required maxlength="100"></label></div>
+        <label><span class="field-label">О проекте <small>(необязательно)</small></span><textarea name="message" rows="3" maxlength="700" placeholder="Например, нужна онлайн-запись для двух мастеров"></textarea></label>
+        <label id="attach-row"><input type="checkbox" id="include-brief"> Приложить смету и мини-ТЗ</label>
+        <input name="website" type="text" tabindex="-1" autocomplete="off" hidden aria-hidden="true">
+        <div class="consent"><label><input name="consent" type="checkbox" required><span>Даю согласие на обработку персональных данных</span></label><div><button data-legal="consent" type="button">Текст согласия</button><button data-legal="privacy" type="button">Политика конфиденциальности</button></div></div>
+        <button class="button primary" id="send" type="submit" disabled>Отправить заявку</button>
+        <p id="lead-status" class="small-status" role="status" hidden></p>
+      </form>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><a class="wordmark" href="#home"><span class="mark" aria-hidden="true"><i></i></span><span>контур<span class="wordmark-dot">.</span></span></a><span>Цифровая студия · Контур</span><button data-legal="privacy" type="button">Конфиденциальность</button></div></footer>
+  <dialog id="legal" aria-labelledby="legal-title"><div class="dialog-head"><h2 id="legal-title"></h2><form method="dialog"><button aria-label="Закрыть">×</button></form></div><div id="legal-content"></div></dialog>
+</body>
+</html>
