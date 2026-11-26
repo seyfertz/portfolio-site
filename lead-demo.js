@@ -1,5 +1,5 @@
 export const DEMO_PROFILE = Object.freeze({
-  enabled: true,
+  enabled: false,
   contact: '@freshxw',
   sample: Object.freeze({
     name: 'Демо-клиент',
