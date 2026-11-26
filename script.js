@@ -3,9 +3,9 @@
 // Публичный JS содержит только адрес формы и сведения об операторе.
 const CONFIG = Object.freeze({
   leadEndpoint: '/api/lead',
-  operator: '',
+  operator: 'Контур Studio',
   operatorStatus: 'самозанятый веб-разработчик',
-  privacyContact: '',
+  privacyContact: '@freshxw',
   consentVersion: '2026-11-26',
 });
 
