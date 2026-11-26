@@ -15,16 +15,16 @@ import './terrain.js';
 
 const $ = (selector) => document.querySelector(selector);
 const solutions = {
-  landing: { label: 'Продающий лендинг', price: 25000, days: 7, scope: 'Адаптивная страница, витрина услуг и форма заявки' },
-  booking: { label: 'Сайт + Онлайн-запись', price: 30000, days: 10, scope: 'Сайт, каталог услуг, специалисты, календарь и запись' },
-  miniapp: { label: 'Telegram-бот + Mini App', price: 32000, days: 11, scope: 'Чат-бот, Mini App, каталог и запись в Telegram' },
-  full: { label: 'Сайт + Бот + CRM-панель', price: 38000, days: 14, scope: 'Сайт, Mini App, чат-бот, общая база и панель владельца' },
+  landing: { price: 7000, days: [1, 1], scope: 'Адаптивная страница, витрина услуг и форма заявки' },
+  booking: { price: 10000, days: [1, 2], scope: 'Сайт, каталог услуг, специалисты, календарь и запись' },
+  miniapp: { price: 10000, days: [1, 2], scope: 'Чат-бот, Mini App, каталог и запись в Telegram' },
+  full: { price: 18000, days: [2, 3], scope: 'Сайт, Mini App, чат-бот, общая база и кабинет владельца' },
 };
 const modules = {
-  reminder: { price: 3000, days: 1, label: 'Авто-напоминания за 2 часа' },
-  loyalty: { price: 5000, days: 2, label: 'Система лояльности и бонусов' },
-  maps: { price: 2000, days: 1, label: 'Интеграция с картами 2ГИС / Яндекс' },
-  telegram: { price: 2000, days: 1, label: 'Уведомления в Telegram' },
+  reminder: { price: 1500, days: 0, label: 'Авто-напоминания за 2 часа' },
+  loyalty: { price: 2500, days: 0.5, label: 'Система лояльности и бонусов' },
+  maps: { price: 2000, days: 0.5, label: 'Интеграция с картами 2ГИС / Яндекс' },
+  telegram: { price: 1500, days: 0, label: 'Уведомления в Telegram' },
 };
 const number = new Intl.NumberFormat('ru-RU');
 const plural = new Intl.PluralRules('ru');
@@ -48,13 +48,16 @@ function estimate() {
   const solution = solutions[calculator.elements.solution.value];
   const selected = [...calculator.querySelectorAll('input:checked')].map((input) => modules[input.value]);
   const price = selected.reduce((sum, item) => sum + item.price, solution.price);
-  const days = selected.reduce((sum, item) => sum + item.days, solution.days);
-  const launch = days + ' ' + ({ one: 'день', few: 'дня', many: 'дней' })[plural.select(days)];
-  $('#price').textContent = rubles(price);
+  const extraDays = selected.reduce((sum, item) => sum + item.days, 0);
+  const [earliest, latest] = solution.days.map((day) => day + extraDays);
+  const range = earliest === latest ? number.format(latest) : number.format(earliest) + '–' + number.format(latest);
+  const launch = range + ' ' + ({ one: 'день', few: 'дня', many: 'дней', other: 'дня' })[plural.select(latest)];
+  const budget = 'от ' + rubles(price);
+  $('#price').textContent = budget;
   $('#duration').textContent = launch + ' до запуска';
-  brief = ['Мини-ТЗ · Контур', 'Ниша: ' + calculator.elements.niche.value, 'Решение: ' + solution.label,
+  brief = ['Мини-ТЗ · Контур', 'Ниша: ' + calculator.elements.niche.value, 'Решение: ' + calculator.elements.solution.selectedOptions[0].textContent,
     'Состав: ' + solution.scope, 'Модули: ' + (selected.map((item) => item.label).join(', ') || 'без дополнительных модулей'),
-    'Предварительный бюджет: ' + rubles(price), 'Ориентир запуска: ' + launch].join('\n');
+    'Предварительный бюджет: ' + budget, 'Ориентир запуска: ' + launch].join('\n');
   $('#brief').textContent = brief;
   status($('#copy-status'), '');
 }
