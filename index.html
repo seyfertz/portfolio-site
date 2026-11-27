@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Разработка сайтов, Telegram-ботов для записи и Mini App под ключ для малого бизнеса. Лендинг от 7 000 ₽, сайт с записью или бот от 10 000 ₽. Запуск за 1–3 дня.">
+  <meta name="description" content="Сайты и Telegram-боты для малого бизнеса. Одностраничный сайт для заявок от 7 000 ₽. Онлайн-запись, приложения и кабинет владельца. Запуск за 2–7 дней.">
   <link rel="canonical" href="https://kontur-portfolio-demo.vercel.app/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Контур">
   <meta property="og:url" content="https://kontur-portfolio-demo.vercel.app/">
   <meta property="og:title" content="Сайты, Telegram-боты и Mini App под ключ от 7 000 ₽ — Контур">
-  <meta property="og:description" content="Запускаем сайты и ботов для онлайн-записи за 1–3 дня. Посмотрите примеры для малого бизнеса и рассчитайте стоимость проекта.">
+  <meta property="og:description" content="Запускаем сайты и ботов для онлайн-записи за 2–7 дней. Посмотрите примеры для малого бизнеса и рассчитайте стоимость проекта.">
   <meta name="theme-color" content="#171a17">
   <title>Сайты, Telegram-боты и Mini App под ключ от 7 000 ₽ — Контур</title>
   <script type="application/ld+json">
@@ -30,10 +30,10 @@
           "provider": {"@id": "https://kontur-portfolio-demo.vercel.app/#kontur"},
           "url": "https://kontur-portfolio-demo.vercel.app/#estimate",
           "offers": [
-            {"@type": "Offer", "name": "Продающий лендинг", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 7000, "priceCurrency": "RUB"}},
-            {"@type": "Offer", "name": "Сайт с онлайн-записью", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 10000, "priceCurrency": "RUB"}},
-            {"@type": "Offer", "name": "Telegram-бот для записи или Mini App", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 10000, "priceCurrency": "RUB"}},
-            {"@type": "Offer", "name": "Сайт, бот и кабинет владельца", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 18000, "priceCurrency": "RUB"}}
+            {"@type": "Offer", "name": "Одностраничный сайт для заявок", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 7000, "priceCurrency": "RUB"}},
+            {"@type": "Offer", "name": "Сайт с онлайн-записью клиентов", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 10000, "priceCurrency": "RUB"}},
+            {"@type": "Offer", "name": "Telegram-бот и приложение для записи", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 10000, "priceCurrency": "RUB"}},
+            {"@type": "Offer", "name": "Полный комплект: сайт + бот + кабинет с выручкой", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 18000, "priceCurrency": "RUB"}}
           ]
         }
       ]
@@ -57,9 +57,9 @@
       <div class="terrain" aria-hidden="true"><canvas id="terrain-fallback"></canvas><div id="terrain"></div></div>
       <div class="shell hero-interior">
         <div class="hero-copy">
-          <p class="eyebrow hero-kicker"><i aria-hidden="true"></i> ЗАПУСК САЙТОВ И БОТОВ ЗА 1–3 ДНЯ</p>
+          <p class="eyebrow hero-kicker"><i aria-hidden="true"></i> ЗАПУСК САЙТОВ И БОТОВ ЗА 2–7 ДНЕЙ</p>
           <h1 id="hero-title">Сайты и боты <span class="accent">для вашего бизнеса</span></h1>
-          <p class="hero-description">Лендинги, онлайн-запись и Mini App для малого бизнеса. От 7 000 ₽. Клиенты выбирают удобное время сами, а вы видите все записи в одном месте.</p>
+          <p class="hero-description">Сайты для заявок, онлайн-запись и приложения в Telegram для малого бизнеса. От 7 000 ₽. Клиенты выбирают удобное время сами, а вы видите все записи в одном месте.</p>
           <div class="hero-actions"><a class="button primary cta" href="#estimate">Рассчитать проект</a><a class="button hero-link" href="#cases">Примеры решений</a></div>
         </div>
       </div>
@@ -91,8 +91,37 @@
         <div class="estimate-grid">
           <form id="calculator" class="glass spotlight reveal">
             <div class="selects"><label>Ниша бизнеса<select id="niche" name="niche"><option>Автосервис / Детейлинг</option><option>Барбершоп</option><option>Стоматология</option><option>Кофейня / Доставка</option><option>Другая ниша</option></select></label>
-            <label>Тип решения<select id="solution" name="solution"><option value="landing">Продающий лендинг под ключ</option><option value="booking">Сайт + онлайн-запись</option><option value="miniapp">Telegram-бот для записи / Mini App</option><option value="full">Сайт + Бот + Кабинет</option></select></label></div>
-            <fieldset><legend>Дополнительные модули</legend>
+            <label>Пакет<select id="solution" name="solution">
+              <option value="landing">Одностраничный сайт для заявок</option>
+              <option value="booking">Сайт с онлайн-записью клиентов</option>
+              <option value="miniapp">Telegram-бот и приложение для записи</option>
+              <option value="full">Полный комплект: сайт + бот + кабинет с выручкой</option>
+            </select></label></div>
+            <div class="package-preview" id="package-preview" data-package="landing">
+              <svg viewBox="0 0 136 88" aria-hidden="true" focusable="false">
+                <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <g data-preview="landing">
+                    <rect x="7" y="9" width="122" height="70" rx="8"/><path d="M7 24h122M18 17h2m4 0h2m4 0h2M19 38h39m-39 8h28"/><rect x="19" y="56" width="28" height="10" rx="3"/><path d="M70 67l13-15 10 5 19-18m-11 0h11v11"/>
+                  </g>
+                  <g data-preview="booking" hidden>
+                    <rect x="26" y="14" width="84" height="64" rx="8"/><path d="M26 32h84M45 10v12m46-12v12m-48 22h4m19 0h4m19 0h4m-50 13h4m19 0h4"/><rect x="85" y="52" width="13" height="12" rx="3"/>
+                  </g>
+                  <g data-preview="miniapp" hidden>
+                    <rect x="44" y="5" width="48" height="78" rx="9"/><path d="M60 12h16m-21 24 26-13-8 22-7-8-11-1 26-13M55 55h26m-26 7h18m-18 7h10"/>
+                  </g>
+                  <g data-preview="full" hidden>
+                    <rect x="7" y="9" width="122" height="70" rx="8"/><path d="M7 25h122M32 25v54M16 35h7m-7 9h7m-7 9h7m20 14h72m-66-1V55m14 11V48m14 18V53m14 13V42m14 24V36"/>
+                  </g>
+                </g>
+              </svg>
+              <div>
+                <strong id="package-preview-name">Одностраничный сайт для заявок</strong>
+                <p id="package-preview-copy">Калькулятор выгоды и форма заявки</p>
+                <button class="button preview-button" id="open-package-demo" type="button" aria-haspopup="dialog" aria-controls="package-demo">Открыть живой пример</button>
+              </div>
+            </div>
+            <fieldset aria-describedby="module-timing"><legend>Дополнительные модули</legend>
+              <p class="module-timing" id="module-timing">Каждый модуль добавляет к сроку 0,5–1 день.</p>
               <label class="module">
                 <span class="module-switch"><input type="checkbox" role="switch" name="modules" value="reminder"><span class="switch-track" aria-hidden="true"></span></span>
                 <span>Авто-напоминания за 2 часа</span><small>+ 1 500 ₽</small>
@@ -113,7 +142,7 @@
           </form>
           <aside class="result spotlight reveal glow-card" aria-label="Расчёт стоимости проекта">
             <p class="eyebrow">Стоимость проекта</p>
-            <div class="result-total" aria-live="polite"><strong id="price">от 7 000 ₽</strong><span id="duration">1 день до запуска</span></div>
+            <div class="result-total" aria-live="polite"><strong id="price">от 7 000 ₽</strong><span id="duration">2–3 дня до запуска</span></div>
             <details class="brief-details"><summary>План запуска проекта</summary><pre id="brief"></pre></details>
             <div class="result-actions"><button class="button result-copy" type="button" id="copy">Скопировать план</button><a href="#contact" class="button primary" id="attach">Приложить к заявке</a></div>
             <p id="copy-status" class="small-status" role="status" hidden></p>
@@ -127,11 +156,11 @@
       <div class="faq-list">
         <details class="glass" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
           <summary><h3 itemprop="name">Сколько стоит сайт или Telegram-бот?</h3></summary>
-          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Лендинг стоит от 7 000 ₽. Сайт с онлайн-записью, Telegram-бот или Mini App — от 10 000 ₽. Сайт, бот и кабинет владельца — от 18 000 ₽.</p></div>
+          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">«Одностраничный сайт для заявок» — от 7 000 ₽. «Сайт с онлайн-записью клиентов» и «Telegram-бот и приложение для записи» — от 10 000 ₽ каждый. «Полный комплект: сайт + бот + кабинет с выручкой» — от 18 000 ₽.</p></div>
         </details>
         <details class="glass" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
           <summary><h3 itemprop="name">За сколько дней можно запустить проект?</h3></summary>
-          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Лендинг — за 1 день. Сайт с записью или бот — за 1–2 дня. Комплект с кабинетом владельца — за 2–3 дня. Некоторые дополнительные функции добавляют по полдня.</p></div>
+          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">«Одностраничный сайт для заявок» — 2–3 дня. «Сайт с онлайн-записью клиентов» и «Telegram-бот и приложение для записи» — 3–4 дня каждый. «Полный комплект: сайт + бот + кабинет с выручкой» — 5–7 дней. Каждый дополнительный модуль прибавляет 0,5–1 день.</p></div>
         </details>
         <details class="glass" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
           <summary><h3 itemprop="name">Что мне подготовить для запуска?</h3></summary>
@@ -160,5 +189,67 @@
   </main>
   <footer class="footer"><div class="shell footer-inner"><a class="wordmark" href="#home"><span class="mark" aria-hidden="true"><i></i></span><span>контур<span class="wordmark-dot">.</span></span></a><span>Цифровая студия · Контур</span><button data-legal="privacy" type="button">Конфиденциальность</button></div></footer>
   <dialog id="legal" aria-labelledby="legal-title"><div class="dialog-head"><h2 id="legal-title"></h2><form method="dialog"><button aria-label="Закрыть">×</button></form></div><div id="legal-content"></div></dialog>
+  <dialog class="package-dialog" id="package-demo" aria-labelledby="package-demo-title">
+    <div class="dialog-head"><h2 id="package-demo-title"></h2><form method="dialog"><button type="submit" aria-label="Закрыть пример" autofocus>×</button></form></div>
+    <div id="package-demo-body"></div>
+  </dialog>
+
+  <template id="demo-landing">
+    <article class="package-screen demo-sale">
+      <header><p class="demo-brand">Студия ухода «Точка»</p><h3>Свежий интерьер за один визит</h3><p>Выездная химчистка мебели с фиксированной ценой.</p></header>
+      <div class="demo-panel">
+        <h4>Сколько можно сэкономить</h4>
+        <label>Предметов мебели: <output for="demo-items" data-item-count>3</output><input id="demo-items" type="range" min="1" max="8" value="3"></label>
+        <p class="demo-saving" aria-live="polite">Вы экономите <strong data-savings></strong></p>
+        <p class="demo-note">Выезд стоит 900 ₽. Если заказать чистку нескольких предметов сразу, за выезд платите один раз.</p>
+      </div>
+      <div class="demo-actions">
+        <button class="button primary" data-demo-request type="button" aria-expanded="false" aria-controls="demo-request-form">Оставить заявку</button>
+        <form id="demo-request-form" class="demo-request" hidden>
+          <p class="demo-note">В демо можно использовать вымышленные данные.</p>
+          <label>Ваше имя<input name="name" required maxlength="80" autocomplete="off"></label>
+          <label>Телефон или Telegram<input name="contact" required maxlength="100" autocomplete="off"></label>
+          <button class="button primary" type="submit">Отправить демо-заявку</button>
+        </form>
+        <p class="demo-note" role="status" data-demo-status></p>
+      </div>
+    </article>
+  </template>
+
+  <template id="demo-booking">
+    <form class="package-screen demo-booking">
+      <header><h3>Запись в студию «Линия»</h3><p>Выберите услугу, мастера и удобное время.</p></header>
+      <div class="demo-booking-fields">
+        <label>Услуга<select name="service" required></select></label>
+        <label>Мастер<select name="master" required></select></label>
+        <label>Дата<select name="date" required></select></label>
+        <label>Свободное время<select name="slot" required></select></label>
+      </div>
+      <div class="demo-actions"><button class="button primary" type="submit">Подтвердить запись</button><p class="demo-note" role="status"></p></div>
+    </form>
+  </template>
+
+  <template id="demo-miniapp">
+    <div class="demo-phone">
+      <div class="demo-phone-head"><span>Telegram Mini App</span><strong>320 бонусов</strong></div>
+      <div class="demo-phone-body"></div>
+    </div>
+    <a class="button preview-button demo-bot-link" href="https://t.me/mystudioobot" target="_blank" rel="noopener noreferrer">Запустить тестового бота в Telegram ↗</a>
+  </template>
+
+  <template id="demo-full">
+    <section class="package-screen demo-dashboard">
+      <header><h3>Кабинет студии «Линия»</h3><p>Пример сводки по выручке и записям.</p></header>
+      <div class="demo-metrics">
+        <div class="demo-panel"><span>Выручка за день</span><strong data-revenue="day"></strong></div>
+        <div class="demo-panel"><span>Выручка за месяц</span><strong data-revenue="month"></strong></div>
+      </div>
+      <section class="demo-panel">
+        <div class="demo-chart-head"><h4>Записи</h4><label>Период<select name="period"><option value="week">Неделя</option><option value="month">Месяц</option></select></label></div>
+        <ol class="demo-chart" aria-label="Количество записей по периодам"></ol>
+      </section>
+      <div class="demo-panel demo-table-wrap"><table class="demo-table"><caption>Мастера</caption><thead><tr><th scope="col">Мастер</th><th scope="col">Записи</th><th scope="col">Выручка</th></tr></thead><tbody></tbody></table></div>
+    </section>
+  </template>
 </body>
 </html>
