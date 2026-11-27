@@ -60,7 +60,7 @@
           <p class="eyebrow hero-kicker"><i aria-hidden="true"></i> ЗАПУСК САЙТОВ И БОТОВ ЗА 1–3 ДНЯ</p>
           <h1 id="hero-title">Сайты и боты <span class="accent">для вашего бизнеса</span></h1>
           <p class="hero-description">Лендинги, онлайн-запись и Mini App для малого бизнеса. От 7 000 ₽. Клиенты выбирают удобное время сами, а вы видите все записи в одном месте.</p>
-          <div class="hero-actions"><a class="button primary" href="#estimate">Рассчитать стоимость</a><a class="button hero-link" href="#cases">Примеры решений</a></div>
+          <div class="hero-actions"><a class="button primary cta" href="#estimate">Рассчитать проект</a><a class="button hero-link" href="#cases">Примеры решений</a></div>
         </div>
       </div>
       <div class="shell hero-footer"><div><span class="strip-icon" aria-hidden="true">◈</span><span>Сайты и онлайн-запись</span></div><div><span class="strip-icon" aria-hidden="true">⌁</span><span>Telegram и Mini Apps</span></div><div><span class="strip-icon" aria-hidden="true">▦</span><span>CRM-панель и отчёты</span></div></div>
@@ -68,7 +68,7 @@
 
     <section class="section cases shell" id="cases" aria-labelledby="cases-title">
       <div class="section-head reveal"><div><h2 id="cases-title">Примеры работ</h2></div><p>Выберите сферу бизнеса и посмотрите, как клиент запишется на услугу.</p></div>
-      <div class="case-shell reveal spotlight">
+      <div class="case-shell reveal spotlight glow-card">
         <div class="case-toolbar">
           <div class="case-tabs" aria-label="Ниши" role="group">
             <button type="button" data-case="auto" aria-pressed="true">Автосервис</button><button type="button" data-case="barber" aria-pressed="false">Барбершоп</button><button type="button" data-case="dental" aria-pressed="false">Стоматология</button><button type="button" data-case="coffee" aria-pressed="false">Кофейня</button>
@@ -93,13 +93,25 @@
             <div class="selects"><label>Ниша бизнеса<select id="niche" name="niche"><option>Автосервис / Детейлинг</option><option>Барбершоп</option><option>Стоматология</option><option>Кофейня / Доставка</option><option>Другая ниша</option></select></label>
             <label>Тип решения<select id="solution" name="solution"><option value="landing">Продающий лендинг под ключ</option><option value="booking">Сайт + онлайн-запись</option><option value="miniapp">Telegram-бот для записи / Mini App</option><option value="full">Сайт + Бот + Кабинет</option></select></label></div>
             <fieldset><legend>Дополнительные модули</legend>
-              <label class="module"><input type="checkbox" name="modules" value="reminder"><span>Авто-напоминания за 2 часа</span><small>+ 1 500 ₽</small></label>
-              <label class="module"><input type="checkbox" name="modules" value="loyalty"><span>Лояльность и бонусы</span><small>+ 2 500 ₽</small></label>
-              <label class="module"><input type="checkbox" name="modules" value="maps"><span>Карты 2ГИС / Яндекс</span><small>+ 2 000 ₽</small></label>
-              <label class="module"><input type="checkbox" name="modules" value="telegram"><span>Уведомления в Telegram</span><small>+ 1 500 ₽</small></label>
+              <label class="module">
+                <span class="module-switch"><input type="checkbox" role="switch" name="modules" value="reminder"><span class="switch-track" aria-hidden="true"></span></span>
+                <span>Авто-напоминания за 2 часа</span><small>+ 1 500 ₽</small>
+              </label>
+              <label class="module">
+                <span class="module-switch"><input type="checkbox" role="switch" name="modules" value="loyalty"><span class="switch-track" aria-hidden="true"></span></span>
+                <span>Лояльность и бонусы</span><small>+ 2 500 ₽</small>
+              </label>
+              <label class="module">
+                <span class="module-switch"><input type="checkbox" role="switch" name="modules" value="maps"><span class="switch-track" aria-hidden="true"></span></span>
+                <span>Карты 2ГИС / Яндекс</span><small>+ 2 000 ₽</small>
+              </label>
+              <label class="module">
+                <span class="module-switch"><input type="checkbox" role="switch" name="modules" value="telegram"><span class="switch-track" aria-hidden="true"></span></span>
+                <span>Уведомления в Telegram</span><small>+ 1 500 ₽</small>
+              </label>
             </fieldset>
           </form>
-          <aside class="result spotlight reveal" aria-label="Расчёт стоимости проекта">
+          <aside class="result spotlight reveal glow-card" aria-label="Расчёт стоимости проекта">
             <p class="eyebrow">Стоимость проекта</p>
             <div class="result-total" aria-live="polite"><strong id="price">от 7 000 ₽</strong><span id="duration">1 день до запуска</span></div>
             <details class="brief-details"><summary>План запуска проекта</summary><pre id="brief"></pre></details>
@@ -141,7 +153,7 @@
         <label id="attach-row"><input type="checkbox" id="include-brief"> Приложить расчёт стоимости и план запуска</label>
         <input name="website" type="text" tabindex="-1" autocomplete="off" hidden aria-hidden="true">
         <div class="consent"><label><input name="consent" type="checkbox" required><span>Даю согласие на обработку персональных данных</span></label><div><button data-legal="consent" type="button">Текст согласия</button><button data-legal="privacy" type="button">Политика конфиденциальности</button></div></div>
-        <button class="button primary" id="send" type="submit" disabled>Отправить заявку</button>
+        <button class="button primary cta" id="send" type="submit" disabled>Отправить заявку</button>
         <p id="lead-status" class="small-status" role="status" hidden></p>
       </form>
     </section>
